@@ -14,10 +14,11 @@ testing_data = pd.read_pickle('/data/WorkData/firmEmbeddings/final_test_data.pkl
 y_training = pd.read_pickle('/data/WorkData/firmEmbeddings/y_train.pkl');
 y_testing = pd.read_pickle('/data/WorkData/firmEmbeddings/y_test.pkl');
 
-#Convert to array
+#Convert the input data to array
 X_train = training_data.values
 X_test = testing_data.values
 
+#Convert the label data to array
 y_train = y_training.values
 y_test = y_testing.values
 
