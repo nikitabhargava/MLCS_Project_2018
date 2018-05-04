@@ -3,7 +3,7 @@
 
 # In[ ]:
 
-
+import multiprocessing
 import gensim
 import nltk
 from nltk import RegexpTokenizer
@@ -22,7 +22,7 @@ import os
 from sklearn.manifold import TSNE
 import re
 import matplotlib.pyplot as plt
-
+from gensim.models.deprecated.doc2vec import LabeledSentence
 
 # In[ ]:
 
@@ -37,6 +37,7 @@ docLabels=[]
 tot=0
 dub=0
 for i in range(2001,2014):
+
     pathname = os.path.join("Filtered_1", str(i))
     files=os.listdir(pathname)
     print(pathname)
@@ -67,8 +68,7 @@ print(len(docLabels))
 print(len(data))
 print(tot)
 print(dub)
-
-
+dd=docLabels[0]
 # In[ ]:
 
 
@@ -111,9 +111,9 @@ for d in data:
     new_data.append(d)
 data=new_data
 
-
+print("data cleaned")
 # In[ ]:
-
+#LabeledSentece = gensim.models.deprecated.doc2vec.LabeledSentence
 
 #create iterator of data and doclabels
 class LabeledLineSentence(object):
@@ -122,7 +122,7 @@ class LabeledLineSentence(object):
         self.doc_list = doc_list
     def __iter__(self):
         for idx, doc in enumerate(self.doc_list):
-              yield gensim.models.doc2vec.LabeledSentence(doc,[self.labels_list[idx]])
+              yield LabeledSentence(doc,[self.labels_list[idx]])
 
 
 # In[ ]:
@@ -130,19 +130,21 @@ class LabeledLineSentence(object):
 
 
 it = LabeledLineSentence(data, docLabels)
-
+print("iterator created")
 
 # In[ ]:
+cores = multiprocessing.cpu_count()
+print("cores - ",cores)
 
-
-model = gensim.models.Doc2Vec(size=25, min_count=5, alpha=0.025, min_alpha=0.025, workers=5)
+model = gensim.models.Doc2Vec(dm=1, dm_mean=1, size=100, negative=6, hs=0, window=5, min_count=5, alpha=0.025, min_alpha=0.025, workers=cores)
 model.build_vocab(it)
 
 #training 
 for epoch in range(100):
-    #print('iteration '+str(epoch+1))
+    print('iteration '+str(epoch+1))
     model.train(it,total_examples=model.corpus_count,epochs=model.epochs)
     model.alpha -= 0.0002
+    print(model.alpha)
     model.min_alpha = model.alpha
 
 model.save('doc2vec.model')
@@ -159,6 +161,6 @@ d2v_model = gensim.models.doc2vec.Doc2Vec.load('doc2vec.model')
 
 
 #finding similar docs
-sims = d2v_model.docvecs.most_similar('X1EUV2Q003')
+sims = d2v_model.docvecs.most_similar(dd)
 print((sims))
 
