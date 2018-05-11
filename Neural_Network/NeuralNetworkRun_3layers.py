@@ -7,14 +7,14 @@ from sklearn.model_selection import train_test_split
 import random
 
 # Load training and testing data
-training_data = pd.read_pickle('/data/WorkData/firmEmbeddings/nikita/final/Data_stock_all/xtrain_stock.pkl');
-validating_data = pd.read_pickle('/data/WorkData/firmEmbeddings/nikita/final/Data_stock_all/xval_stock.pkl');
-testing_data = pd.read_pickle('/data/WorkData/firmEmbeddings/nikita/final/Data_stock_all/xtest_stock.pkl');
+training_data = pd.read_pickle('/data/WorkData/firmEmbeddings/Final/StockPrediction/Data_stock_all/xtrain_stock.pkl');
+validating_data = pd.read_pickle('/data/WorkData/firmEmbeddings/Final/StockPrediction/Data_stock_all/xval_stock.pkl');
+testing_data = pd.read_pickle('/data/WorkData/firmEmbeddings/Final/StockPrediction//Data_stock_all/xtest_stock.pkl');
 
 # Target train and test
-y_training = pd.read_pickle('/data/WorkData/firmEmbeddings/nikita/final/Data_stock_all/ytrain_stock.pkl');
-y_validating = pd.read_pickle('/data/WorkData/firmEmbeddings/nikita/final/Data_stock_all/yval_stock.pkl');
-y_testing = pd.read_pickle('/data/WorkData/firmEmbeddings/nikita/final/Data_stock_all/ytest_stock.pkl');
+y_training = pd.read_pickle('/data/WorkData/firmEmbeddings/Final/StockPrediction/Data_stock_all/ytrain_stock.pkl');
+y_validating = pd.read_pickle('/data/WorkData/firmEmbeddings/Final/StockPrediction//Data_stock_all/yval_stock.pkl');
+y_testing = pd.read_pickle('/data/WorkData/firmEmbeddings/Final/StockPrediction/Data_stock_all/ytest_stock.pkl');
 
 
 #Convert to array
