@@ -38,7 +38,7 @@ tot=0
 dub=0
 for i in range(2001,2014):
 
-    pathname = os.path.join("Filtered_1", str(i))
+    pathname = os.path.join("/data/WorkData/firmEmbeddings/CaseData/Filtered_1", str(i))
     files=os.listdir(pathname)
     print(pathname)
     print(len(files))
@@ -147,14 +147,14 @@ for epoch in range(100):
     print(model.alpha)
     model.min_alpha = model.alpha
 
-model.save('doc2vec.model')
+model.save('/data/WorkData/firmEmbeddings/CaseData/doc2vec_2.model')
 print("model saved")
 
 
 # In[ ]:
 
 
-d2v_model = gensim.models.doc2vec.Doc2Vec.load('doc2vec.model')
+d2v_model = gensim.models.doc2vec.Doc2Vec.load('/data/WorkData/firmEmbeddings/CaseData/doc2vec_2.model')
 
 
 # In[ ]:
