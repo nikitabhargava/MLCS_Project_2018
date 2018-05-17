@@ -19,16 +19,16 @@ torch.manual_seed(1)
 
 
 #Train data
-X_train = pd.read_pickle('/data/WorkData/firmEmbeddings/JoinedData/FirmEmbeddings/xtrain_firm.pkl')
-y_train = pd.read_pickle('/data/WorkData/firmEmbeddings/JoinedData/FirmEmbeddings/ytrain_firm.pkl')
+X_train = pd.read_pickle('/data/WorkData/firmEmbeddings/Models/FirmEmbeddings/xtrain_firm.pkl')
+y_train = pd.read_pickle('/data/WorkData/firmEmbeddings/Models/FirmEmbeddings/ytrain_firm.pkl')
 
 #Validation data
-X_val = pd.read_pickle('/data/WorkData/firmEmbeddings/JoinedData/FirmEmbeddings/xval_firm.pkl')
-y_val = pd.read_pickle('/data/WorkData/firmEmbeddings/JoinedData/FirmEmbeddings/yval_firm.pkl')
+X_val = pd.read_pickle('/data/WorkData/firmEmbeddings/Models/FirmEmbeddings/xval_firm.pkl')
+y_val = pd.read_pickle('/data/WorkData/firmEmbeddings/Models/FirmEmbeddings/yval_firm.pkl')
 
 #Test data
-X_test = pd.read_pickle('/data/WorkData/firmEmbeddings/JoinedData/FirmEmbeddings/xtest_firm.pkl')
-y_test = pd.read_pickle('/data/WorkData/firmEmbeddings/JoinedData/FirmEmbeddings/ytest_firm.pkl')
+X_test = pd.read_pickle('/data/WorkData/firmEmbeddings/Models/FirmEmbeddings/xtest_firm.pkl')
+y_test = pd.read_pickle('/data/WorkData/firmEmbeddings/Models/FirmEmbeddings/ytest_firm.pkl')
 
 
 class Firm_Embedding_Model(nn.Module):
@@ -128,4 +128,4 @@ for i_epoch in range(N_EPOCH):
     
 trained_emb = model.firm_embedding.weight.data.numpy() 
 print((trained_emb))   
-pickle.dump(trained_emb,open("trainedModel.pkl","wb"))
+pickle.dump(trained_emb,open("/data/WorkData/firmEmbeddings/Models/FirmEmbeddings/trainedModel.pkl","wb"))
