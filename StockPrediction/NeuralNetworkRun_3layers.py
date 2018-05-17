@@ -7,14 +7,14 @@ from sklearn.model_selection import train_test_split
 import random
 
 # Load training and testing data
-training_data = pd.read_pickle('/data/WorkData/firmEmbeddings/Final/StockPrediction/Data_stock_all/xtrain_stock.pkl');
-validating_data = pd.read_pickle('/data/WorkData/firmEmbeddings/Final/StockPrediction/Data_stock_all/xval_stock.pkl');
-testing_data = pd.read_pickle('/data/WorkData/firmEmbeddings/Final/StockPrediction//Data_stock_all/xtest_stock.pkl');
+training_data = pd.read_pickle('/data/WorkData/firmEmbeddings/Models/StockPredictionUsingNeuralNetwork/Data_stock_all/xtrain_stock.pkl');
+validating_data = pd.read_pickle('/data/WorkData/firmEmbeddings/Models/StockPredictionUsingNeuralNetwork/Data_stock_all/xval_stock.pkl');
+testing_data = pd.read_pickle('/data/WorkData/firmEmbeddings/Models/StockPredictionUsingNeuralNetwork/Data_stock_all/xtest_stock.pkl');
 
 # Target train and test
-y_training = pd.read_pickle('/data/WorkData/firmEmbeddings/Final/StockPrediction/Data_stock_all/ytrain_stock.pkl');
-y_validating = pd.read_pickle('/data/WorkData/firmEmbeddings/Final/StockPrediction//Data_stock_all/yval_stock.pkl');
-y_testing = pd.read_pickle('/data/WorkData/firmEmbeddings/Final/StockPrediction/Data_stock_all/ytest_stock.pkl');
+y_training = pd.read_pickle('/data/WorkData/firmEmbeddings/Models/StockPredictionUsingNeuralNetwork/Data_stock_all/ytrain_stock.pkl');
+y_validating = pd.read_pickle('/data/WorkData/firmEmbeddings/Models/StockPredictionUsingNeuralNetwork/Data_stock_all/yval_stock.pkl');
+y_testing = pd.read_pickle('/data/WorkData/firmEmbeddings/Models/StockPredictionUsingNeuralNetwork/Data_stock_all/ytest_stock.pkl');
 
 
 #Convert to array
@@ -44,7 +44,6 @@ bias_initializer = tf.zeros_initializer()
 
 
 #Model architecture parameters
-#n_neurons_1 = 1024
 n_neurons_1 = 1024
 n_neurons_2 = 512
 n_neurons_3 = 256
@@ -62,9 +61,6 @@ bias_hidden_2 = tf.Variable(bias_initializer([n_neurons_2]))
 W_hidden_3 = tf.Variable(weight_initializer([n_neurons_2, n_neurons_3]))
 bias_hidden_3 = tf.Variable(bias_initializer([n_neurons_3]))
 
-# Layer 4: Variables for hidden weights and biases
-#W_hidden_4 = tf.Variable(weight_initializer([n_neurons_3, n_neurons_4]))
-#bias_hidden_4 = tf.Variable(bias_initializer([n_neurons_4]))
 
 
 # Output layer: Variables for output weights and biases
@@ -112,14 +108,6 @@ y_test_part = y_test_part[0:20000]
 X_test_part = X_test_part[0:20000]
 y_test_part = y_test_part.reshape((20000,1))
 
-"""
-shuffle_indices = np.random.permutation(np.arange(len(y_train)))
-X_train_part = X_train[shuffle_indices]
-y_train_part = y_train[shuffle_indices]
-y_train_part =y_train_part[0:500]
-X_train_part = X_train_part[0:500]
-y_train_part = y_train_part.reshape((500,1))
-"""
 
 shuffle_indices = np.random.permutation(np.arange(len(y_val)))
 X_val_part = X_val[shuffle_indices]
@@ -128,29 +116,14 @@ y_val_part =y_val_part[0:10000]
 X_val_part = X_val_part[0:10000]
 y_val_part = y_val_part.reshape((10000,1))
 
-#y_val_part =y_val[0:500]
-#X_val_part = X_val[0:500]
-#y_val_part = y_val_part.reshape((500,1))
+
+np.savetxt('/data/WorkData/firmEmbeddings/Models/StockPredictionUsingNeuralNetwork/actual.txt', y_test_part, fmt='%f')
 
 
-#y_train_part =y_train[0:500]
-#X_train_part = X_train[0:500]
-#y_train_part = y_train_part.reshape((500,1))
-
-np.savetxt('/data/WorkData/firmEmbeddings/nikita/final/Data_stock_all/actual.txt', y_test_part, fmt='%f')
-
-#prediction = np.zeros(500)
-
-#plt.ion()
-#fig = plt.figure()
 # Run
 epochs = 10
 for e in range(epochs):
 
-    # Shuffle training data
-    #shuffle_indices = np.random.permutation(np.arange(len(y_train)))
-    #X_train = X_train[shuffle_indices]
-    #y_train = y_train[shuffle_indices]
 
     # Minibatch training
     for i in range(0, len(y_train) // batch_size):
@@ -168,16 +141,9 @@ for e in range(epochs):
             mse_train.append(net.run(mse, feed_dict={X_input: batch_x, y_output: batch_y}))
             mse_val.append(net.run(mse, feed_dict={X_input: X_val_part, y_output: y_val_part})) 
             
-            #print(e)
-            #print(i)
             print('MSE Train: ', mse_train[-1])
             print('MSE Val: ', mse_val[-1])
             
-            # Prediction
-            #pred = net.run(out, feed_dict={X_input: X_val_part})
-            #prediction = np.asarray(pred)
-            #print("prediction is")
-            #print(pred)
             
 mse_test=net.run(mse, feed_dict={X_input: X_test_part, y_output: y_test_part})
 pred1 = net.run(out, feed_dict={X_input: X_test_part})
@@ -185,7 +151,7 @@ prediction1 = np.asarray(pred1)
 print("Prediction is")
 print(pred1)
 print("MSE Test - ",mse_test)
-np.savetxt('/data/WorkData/firmEmbeddings/nikita/final/Data_stock_all/prediction.txt', prediction1, fmt='%f')
+np.savetxt('/data/WorkData/firmEmbeddings/Models/StockPredictionUsingNeuralNetwork/prediction.txt', prediction1, fmt='%f')
 
 
            
