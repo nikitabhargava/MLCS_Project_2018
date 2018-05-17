@@ -7,7 +7,7 @@ from sklearn.ensemble import RandomForestRegressor
 
 
 #Load the stock data
-stockData = pd.read_csv('/data/WorkData/firmEmbeddings/Final/RandomForestRun/stockData07to13_logdiff_5_0.1.csv')
+stockData = pd.read_csv('/data/WorkData/firmEmbeddings/Models/StockPredictionUsingRandomForest/stockData07to13_logdiff_5_0.1.csv')
 
 
 #Display  stock data
@@ -19,7 +19,7 @@ print(stockData)
 
 
 #Load the case data
-caseData = pd.read_pickle('/data/WorkData/firmEmbeddings/Final/RandomForestRun/ngramdata.pkl')
+caseData = pd.read_pickle('/data/WorkData/firmEmbeddings/Models/StockPredictionUsingRandomForest/ngramdata.pkl')
 caseData['Date'] =  pd.to_datetime(caseData['Date'])
 print("caseData")
 print(caseData)
