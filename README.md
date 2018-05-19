@@ -39,5 +39,9 @@ pip3 install -r requirements.txt
  
 # Script to generate models  for stock prediction and firm embeddings -
 
-
+    #Change file permissios to run the script
+    chmod 755 RunAllmodels.sh
+    
+    # Run the following command to execute the script -
+    sh RunAllmodels.sh
 
