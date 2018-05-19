@@ -73,7 +73,7 @@ pip3 install -r requirements.txt
     
     
     The predictions on test data after running the NeuralNetworkRun_3layers.py script are saved in 
-    predictions.txt in the same path from in which data is present. The file predictions.txt along 
+    predictions.txt in the same path in which data is present. The file predictions.txt along 
     with actual.txt (which is also present in the same path as predictions.txt) will be used by the 
     notebook StockPrediction/ScatterPlotPredictedvsActual.ipynb in plotting the actual/predicted 
     stock price change. The notebook contains the absolute path for these files. 
@@ -81,7 +81,7 @@ pip3 install -r requirements.txt
     
     
     The firm embeddings matrix after running the script FirmEmbeddingsModel.py saves the matrix 
-    in the same path from where data is present. This matrix will be used by 
+    in the same path in which data is present. This matrix will be used by 
     FirmEmbeddings/VisualizeFirmsEmbeddings.ipynb to visualize the embeddings. This notebook contains 
     the Tsne plots for category 6, 7 and combines cases. It also contains the embeddings visualization 
     against industries of the firms, ranking of the firms, states in which they lie. The 
