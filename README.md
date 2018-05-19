@@ -36,7 +36,8 @@ We have run our scripts on the GPU server 13.90.81.78.
   
   
 # Scripts to process the raw case data-
-    Run the files in following order
+    
+    These files are present in CaseData folder. Run the files in following order-
       
     1.  filterCases.ipynb - Filters cases from sentences folder to get cases for category 6 and 7. It uses 
     bb2topic.pkl, bb2genis.pkl, caseid_date.csv. This generates new folder Filtered_1 and the files 
@@ -62,6 +63,8 @@ We have run our scripts on the GPU server 13.90.81.78.
 
 
 # Script to join the two data sets - 
+    These files are present in JoiningDataPrep folder
+    
     1. StockAndCaseDataJoined - joins case and stock data. This script uses stockData07to13_logdiff_5_0.1.csv 
     and following docvector files - traindocvector.pkl, testdocvector.pkl, validationdocvector.pkl. 
     And produces following files - training_data_CaseCompanyStockChange.pkl, 
