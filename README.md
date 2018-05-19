@@ -62,11 +62,20 @@ We have run our scripts on the GPU server 13.90.81.78.
 
 
 # Script to join the two data sets - 
-    1. StockAndCaseDataJoined - joins case and stock data. This script uses stockData07to13_logdiff_5_0.1.csv and following          docvector files - traindocvector.pkl, testdocvector.pkl, validationdocvector.pkl. And produces following files                - training_data_CaseCompanyStockChange.pkl, testing_data_CaseCompanyStockChange.pkl,                 validation_data_CaseCompanyStockChange.pkl
-
-    2. ProcessJoinedDataForNN.ipynb - processes data for final run and creates val_data_final.pkl, train_data_final.pkl, test_data_final.pkl
-    3. Finaldata_stockPred.ipynb - produces final data for all cases and category 6 and 7 for stock prediction 
-    4. Finaldata_firmEmbed.ipynb - produces final data for all cases and category 6 and 7 for firm embeddings and uses Company_meta.pkl
+    1. StockAndCaseDataJoined - joins case and stock data. This script uses stockData07to13_logdiff_5_0.1.csv 
+    and following docvector files - traindocvector.pkl, testdocvector.pkl, validationdocvector.pkl. 
+    And produces following files - training_data_CaseCompanyStockChange.pkl, 
+    testing_data_CaseCompanyStockChange.pkl, validation_data_CaseCompanyStockChange.pkl
+    
+    2. ProcessJoinedDataForNN.ipynb - processes data for final run and creates val_data_final.pkl, 
+    train_data_final.pkl, test_data_final.pkl
+    
+    3. Finaldata_stockPred.ipynb - produces final data for all cases and category 
+    6 and 7 for stock prediction 
+    
+    4. Finaldata_firmEmbed.ipynb - produces final data for all cases and category 6 and 7 
+    for firm embeddings and uses Company_meta.pkl
+    
     5. RankCompany.ipynb - used to create Company_meta_rank.pkl
  
 # Script to generate models for stock prediction and firm embeddings -
