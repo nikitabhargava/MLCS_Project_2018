@@ -35,7 +35,7 @@ We have run our scripts on the GPU server 13.90.81.78.
     >> nltk.download('punkt')
   
   
-# Script to process the raw case data is -
+# Scripts to process the raw case data-
     Run the files in following order
       
     1.  filterCases.ipynb - Filters cases from sentences folder to get cases for category 6 and 7. It uses 
@@ -56,7 +56,7 @@ We have run our scripts on the GPU server 13.90.81.78.
     traindocvector.pkl, testdocvector.pkl, validationdocvector.pkl
 
 
-# Script to process the raw Stock Data is - 
+# Script to process the raw Stock Data - 
     Run the script filterCompanies.py present in path StockData to process the stock data
     python3 filterCompanies.py
 
