@@ -38,6 +38,8 @@ We have run our scripts on the GPU server 13.90.81.78.
 # Scripts to process the raw case data-
     
     These files are present in CaseData folder. Run the files in following order-
+    The data generated from these scripts will be used with stock data in creating final data for training 
+    the models. This data can be found in /data/WorkData/firmEmbeddings/CaseData/ folder present on the server.
       
     1.  filterCases.ipynb - Filters cases from sentences folder to get cases for category 6 and 7. It uses 
     bb2topic.pkl, bb2genis.pkl, caseid_date.csv. This generates new folder Filtered_1 and the files 
@@ -45,7 +47,7 @@ We have run our scripts on the GPU server 13.90.81.78.
 
     2. ngramdataGenerate.ipynb - Filters bigram pickle files to get cases for category 6 and 7 . It uses 
     casedata.pkl and [20180208]build_vocab_lemma_pos/phrased/ and creates new folder PickleFiles. The PickleFiles contains all cases belonging to category 6 and 7.
-
+    
     3. bigram.ipynb- It creates final ngramdata.pkl. The code uses id2gram.pkl, casedata.pkl, df-tf.pkl 
     and files from PickleFiles folder to generate data. 
 
@@ -80,6 +82,9 @@ We have run our scripts on the GPU server 13.90.81.78.
     for firm embeddings and uses Company_meta.pkl
     
     5. RankCompany.ipynb - used to create Company_meta_rank.pkl
+    
+    After running all these scripts, the data for all the models will be copied in their respective
+    paths mentioned above.
  
 # Script to generate models for stock prediction and firm embeddings -
 
