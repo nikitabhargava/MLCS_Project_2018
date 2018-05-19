@@ -31,15 +31,22 @@ pip3 install -r requirements.txt
 # Script to process the raw case data is -
     Run the files in following order
       
-    1.  filterCases.ipynb - Filters cases from sentences folder to get cases for category 6 and 7. It uses bb2topic.pkl, bb2genis.pkl, caseid_date.csv. The generates new folder Filtered_1 and following files are generated filtered.pkl, casedata.pkl. 
+    1.  filterCases.ipynb - Filters cases from sentences folder to get cases for category 6 and 7. It uses 
+    bb2topic.pkl, bb2genis.pkl, caseid_date.csv. The generates new folder Filtered_1 and following files 
+    are generated filtered.pkl, casedata.pkl. 
 
-    2. ngramdataGenerate.ipynb - Filters bigram pickle files to get cases for category 6 and 7 . It uses casedata.pkl and [20180208]build_vocab_lemma_pos/phrased/ and creates new folder PickleFiles
+    2. ngramdataGenerate.ipynb - Filters bigram pickle files to get cases for category 6 and 7 . It uses 
+    casedata.pkl and [20180208]build_vocab_lemma_pos/phrased/ and creates new folder PickleFiles
 
-    3. bigram.ipynb- It creates final ngramdata.pkl. The code uses id2gram.pkl, casedata.pkl, df-tf.pkl and files from PickleFiles folder
+    3. bigram.ipynb- It creates final ngramdata.pkl. The code uses id2gram.pkl, casedata.pkl, df-tf.pkl 
+    and files from PickleFiles folder
 
-    4. doc2vec.py- Uses text from Filtered_1 and runs doc2vec algorithm on filtered cases and generate doc2vec_2.model
+    4. doc2vec.py- Uses text from Filtered_1 and runs doc2vec algorithm on filtered cases and generate 
+    doc2vec_2.model
 
-    5. modeltodata.ipynb - Uses casedata.pkl doc2vec_2.model and maps model vectors to case meta data and creates visualization of docvectors. The code produces following files docvector.pkl, traindocvector.pkl, testdocvector.pkl, validationdocvector.pkl
+    5. modeltodata.ipynb - Uses casedata.pkl doc2vec_2.model and maps model vectors to case meta 
+    data and creates visualization of docvectors. The code produces following files docvector.pkl, 
+    traindocvector.pkl, testdocvector.pkl, validationdocvector.pkl
 
 
 # Script to process the raw Stock Data is - 
@@ -65,13 +72,15 @@ pip3 install -r requirements.txt
     
     
     The predictions on test data after running the NeuralNetworkRun_3layers.py script are saved in predictions.txt 
-    in the same path from in which data is present. The file predictions.txt along with actual.txt (which is also present
-    in the same path as predictions.txt) will be used by the notebook StockPrediction/ScatterPlotPredictedvsActual.ipynb 
-    in plotting the actual/predicted stock price change. The notebook contains the absolute path for these files. Thus
-    the notebook can also be run from anywhere on the GPU server.
+    in the same path from in which data is present. The file predictions.txt along with actual.txt (which is also 
+    present in the same path as predictions.txt) will be used by the notebook StockPrediction/ScatterPlotPredictedvsActual.ipynb 
+    in plotting the actual/predicted stock price change. The notebook contains the absolute path for these files. 
+    Thus the notebook can also be run from anywhere on the GPU server.
     
     
-    The firm embeddings matrix after running the script FirmEmbeddingsModel.py saves the matrix in the same path from 
-    where data is present. This matrix will be used by FirmEmbeddings/VisualizeFirmsEmbeddings.ipynb to visualize the   embeddings. This notebook contains the tsne plots for category 6, 7 and combines cases. It also contains the embeddings visualization against industries of the firms, ranking of the firms, states in which they lie. The notebook also 
-    contains cosine similarity plots for the two categories - Finance and Manufacturing. 
+    The firm embeddings matrix after running the script FirmEmbeddingsModel.py saves the matrix in the same path 
+    from where data is present. This matrix will be used by FirmEmbeddings/VisualizeFirmsEmbeddings.ipynb to visualize 
+    the embeddings. This notebook contains the tsne plots for category 6, 7 and combines cases. It also contains 
+    the embeddings visualization against industries of the firms, ranking of the firms, states in which they lie. The 
+    notebook  also contains the cosine similarity plots for the two categories - Finance and Manufacturing. 
 
