@@ -22,7 +22,7 @@ pip3 install -r requirements.txt
          StockPredictionUsingRandomForest/
          
     # Neural Network for Stock Prediction Data
-        StockPredictionUsingNeuralNetwork/
+        StockPredictionUsingNeuralNetwork/Data_stock_all/
         
     # Neural Network for Firm Embeddings Data
         FirmEmbeddings/
