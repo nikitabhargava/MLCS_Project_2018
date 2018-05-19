@@ -1,8 +1,6 @@
 
 We have run our scripts on the GPU server 13.90.81.78.
 
-# To install the packages for running all the scripts execute the command-
-pip3 install -r requirements.txt
 
 # Raw data for cases and stock price change can be found at path-
     # Main Directory 
@@ -28,6 +26,15 @@ pip3 install -r requirements.txt
         FirmEmbeddings/
         
         
+# To install the packages for running all the scripts execute the command-
+    chmod 755 requirements.sh
+    sh requirements.sh
+
+# Go to the python shell and execute the command for downloading punkt -
+    python3
+    >> nltk.download('punkt')
+  
+  
 # Script to process the raw case data is -
     Run the files in following order
       
@@ -50,12 +57,14 @@ pip3 install -r requirements.txt
 
 
 # Script to process the raw Stock Data is - 
+    Run the script filterCompanies.py present in path StockData to process the stock data
+    python3 filterCompanies.py
 
 
 # Script to join the two data sets - 
 
  
-# Script to generate models  for stock prediction and firm embeddings -
+# Script to generate models for stock prediction and firm embeddings -
 
     #Change file permissios to run the script
     chmod 755 RunAllmodels.sh
