@@ -1,5 +1,3 @@
-#Change file permissios to run the script
-chmod 755 RunAllmodels.sh
 
 # Run random forest model
 python3 RunRandomForest.py
