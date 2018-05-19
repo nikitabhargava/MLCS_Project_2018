@@ -1,5 +1,5 @@
 
-We have run our scripts on the GPU server 13.90.81.78.
+We have run our scripts on the GPU server 13.90.81.78. The data is present on the same server.
 
 
 # Raw data for cases and stock price change can be found at path-
