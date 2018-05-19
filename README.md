@@ -1,26 +1,43 @@
 
-We have run our scripts on the GPU server 13.90.81.78. It has all the tools and packages required by the script. 
+We have run our scripts on the GPU server 13.90.81.78.
+
+# To install the packages for running all the scripts execute the command-
+pip3 install -r requirements.txt
+
+# Raw data for cases and stock price change can be found at path-
+    # Main Directory 
+        /data/WorkData/firmEmbeddings/
+        
+    # Case Data is inside the directory
+        CaseData/
+        
+    # Stock Data is inside the directory
+        StockData/
+        
+# The data after processing and joining can be found at path - 
+    # Main Directory 
+        /data/WorkData/firmEmbeddings/Models/
+        
+    # Random Forest for Stock Prediction Data
+         StockPredictionUsingRandomForest/
+         
+    # Neural Network for Stock Prediction Data
+        StockPredictionUsingNeuralNetwork/
+        
+    # Neural Network for Firm Embeddings Data
+        FirmEmbeddings/
+        
+        
+# Script to process the raw case data is -
 
 
-#Model Run
+# Script to process the raw Stock Data is - 
 
-Path where the models are located
 
-Main Directory is :
-/data/WorkData/firmEmbeddings/Models/
+# Script to join the two data sets - 
 
-1. Subdirectory for Random Forest Algorithm is :
-StockPredictionUsingRandomForest/
+ 
+# Script to generate models  for stock prediction and firm embeddings -
 
-Running the script RunRandomForest.py will generate the model. The model will generate the plot actual/predicted at the end of the script. 
 
-2. Subdirectory for Neural Network for Stock Prediction:
-StockPredictionUsingNeuralNetwork/
-
-Running the script NeuralNetworkRun_3layers.py will train the model. The predictions on test data are saved in predictions.txt in the same path. This file along with actual.txt will be used in plotting the actual/predicted stock price change. 
-
-3. Sudirectory for Neural Network for firm Embeddings
-FirmEmbeddings/
-
-Running the script NeuralNetworkRun_3layers.py will generate the firm embeddings. This embedding will be saved in the same path.
 
